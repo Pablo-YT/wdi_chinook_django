@@ -1,0 +1,26 @@
+1. Artist.objects.get(name='Queen')
+<Artist: Artist object (51)>
+
+
+2.
+MediaType.objects.get(name="Protected MPEG-4 video file")
+<MediaType: MediaType object (3)>
+
+Track.objects.filter(media_type_id=3).count()
+214
+
+
+3.
+Genre.objects.get(name="Hip Hop/Rap")
+<Genre: Genre object (17)>
+
+
+
+
+4. 
+Genre.objects.get(name='Hip Hop/Rap')
+<Genre: Genre object (17)>
+
+Track.objects.filter(genre=17).count()
+35
+
