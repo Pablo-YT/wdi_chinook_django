@@ -24,3 +24,45 @@ Genre.objects.get(name='Hip Hop/Rap')
 Track.objects.filter(genre=17).count()
 35
 
+5. 
+
+Track.objects.aggregate(Sum('milliseconds'))
+{'milliseconds__sum': 1377942652}
+
+6. 
+
+MediaType.objects.get(name='MPEG audio file')
+<MediaType: MediaType object (1)>
+
+Track.objects.filter(media_type_id=1).aggregate(Max('unit_price'))
+{'unit_price__max': Decimal('0.99')}
+
+
+7.
+
+Track.objects.filter(media_type_id=1).order_by('unit_price')[0].name
+'Carol'
+
+8.
+Artist.objects.order_by('created_at')[0].name
+'Les Arts Florissants & William Christie'
+
+Artist.objects.order_by('created_at')[1].name
+'Baby Consuelo'
+
+
+9.
+
+Genre.objects.get(name='Electronica/Dance')
+<Genre: Genre object (15)>
+
+
+Track.objects.filter(genre=15).order_by('unit_price')[0].name
+'Instinto Colectivo'
+
+
+10.
+
+ Track.objects.filter(media_type=1, genre=15).count()
+ 
+28
